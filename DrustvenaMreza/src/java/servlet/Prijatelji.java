@@ -101,6 +101,15 @@ public class Prijatelji extends HttpServlet {
                             rs.getString("Prijatelji")));
                             }
                         }
+                        for(int i =0;i<ListaKorisnika.size();i++){
+                            String NizKorisnika[]= VratiNiz(ListaKorisnika.get(i).getPrijatelji());
+                                 for(String n:NizKorisnika){
+                                     if(n.equals(uzmiID)){
+                                        ListaKorisnika.remove(ListaKorisnika.get(i));
+                                            i-=1;
+                                 }
+                             }     
+                        }
                     }      
             }
             //Predlozeni prijatelji
@@ -140,7 +149,8 @@ public class Prijatelji extends HttpServlet {
                        brojac=0;
                        ostali=new String[1];
                    }
-                }   
+                }
+                
             }
             for(int i =0;i<ListaKorisnika.size();i++){
                 for(int j=i+1;j<ListaKorisnika.size();j++){
@@ -153,13 +163,12 @@ public class Prijatelji extends HttpServlet {
                     ListaKorisnika.remove(ListaKorisnika.get(i));
                 }
                 String NizKorisnika[]= VratiNiz(ListaKorisnika.get(i).getPrijatelji());
-                
-                for(String n:NizKorisnika){
-                    if(n.equals(uzmiID)){
-                        ListaKorisnika.remove(ListaKorisnika.get(i));
-                        i-=1;
+                                 for(String n:NizKorisnika){
+                                     if(n.equals(uzmiID)){
+                                        ListaKorisnika.remove(ListaKorisnika.get(i));
+                                            i-=1;
                     }
-                }     
+                 }
             }
            
             request.setAttribute("Lista", ListaKorisnika);
