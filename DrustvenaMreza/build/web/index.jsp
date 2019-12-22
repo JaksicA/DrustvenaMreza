@@ -33,7 +33,7 @@
         </tr>
     <% for(Korisnici korisnik:Lista){
         
-%><tr class="slova">
+    %><tr class="slova">
         <td><%=korisnik.getId()%></td>
         <td><%=korisnik.getIme()%></td>
         <td><%=korisnik.getPrezime()%></td>
@@ -45,8 +45,6 @@
     }
         
     %>
-    </table>
-
-        
+    </table>  
     </body>
 </html>

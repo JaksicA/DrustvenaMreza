@@ -50,14 +50,8 @@ public class SviKorisnici extends HttpServlet {
             }
             
             request.setAttribute("Lista", ListaKorisnika);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-            
-            
-            
-            
-            
-        }
-        
+            request.getRequestDispatcher("index.jsp").forward(request, response);       
+        }    
         catch(ClassNotFoundException e){
             request.setAttribute("Greska", e.toString());
             request.getRequestDispatcher("index.jsp").forward(request, response);

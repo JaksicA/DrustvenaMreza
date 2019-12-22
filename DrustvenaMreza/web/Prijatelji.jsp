@@ -18,14 +18,12 @@
         %><%=Greska%><%
 
     }%>
-    
     <table class="Lista1">
         <tr class="Naziv">
             <th>Ime</th>
             <th>Prezime</th>
             <th>Godine</th>
-            <th>Pol</th>
-            
+            <th>Pol</th> 
         </tr>
         <%for(Korisnici korisnik:Lista){
             %><tr class="Slovo">
@@ -35,13 +33,8 @@
             <td><%=korisnik.getPol()%></td>
             
         </tr><%
-        }
-        
-         
-        %>
-        
-        
-        
+        }      
+        %>           
     </table>
 
     </body>

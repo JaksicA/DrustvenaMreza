@@ -65,9 +65,7 @@ public class Prijatelji extends HttpServlet {
                     ListaKorisnika.add(new Korisnici(rs.getInt("id"), rs.getString("Ime"), rs.getString("Prezime"), rs.getInt("Godine"), rs.getString("pol"),
                             rs.getString("Prijatelji")));
                 }
-
-            }
-                
+              }                
             }
             //Prijatelji prijatelja
             if(parametar.equals("Fof")){
@@ -83,16 +81,14 @@ public class Prijatelji extends HttpServlet {
                       if(rs.next()){
                       
                           korisnici.add(new Korisnici(rs.getInt("id"), rs.getString("Ime"), rs.getString("Prezime"), rs.getInt("Godine"), rs.getString("pol"),
-                            rs.getString("Prijatelji")));
-                          
+                            rs.getString("Prijatelji")));   
                       }
                     }
                     for(Korisnici korisnik:korisnici){
                         String upit2 = "SELECT * FROM korisnik WHERE id = " +korisnik.getId();
                         rs =stmt.executeQuery(upit2);
                         if(rs.next()){
-                            Prijatelji = rs.getString("Prijatelji");
-                          
+                            Prijatelji = rs.getString("Prijatelji");                         
                         }
                         PrijateljiNiz = VratiNiz(Prijatelji);
                         for(String p:PrijateljiNiz){
@@ -105,18 +101,13 @@ public class Prijatelji extends HttpServlet {
                             rs.getString("Prijatelji")));
                             }
                         }
-                    }
-                    
-                    
-                
-                
+                    }      
             }
             //Predlozeni prijatelji
             if(parametar.equals("Suggested")){
                 
                 ArrayList<Korisnici> OstaliKorisnici = new ArrayList<Korisnici>();
-                
-                
+          
                 rs = stmt.executeQuery(upit);
                 if(rs.next()){
                     Prijatelji = rs.getString("Prijatelji"); 
@@ -151,9 +142,6 @@ public class Prijatelji extends HttpServlet {
                    }
                 }   
             }
-             
-            //Brisanje sebe iz liste prijatelja
-            
             for(int i =0;i<ListaKorisnika.size();i++){
                 for(int j=i+1;j<ListaKorisnika.size();j++){
                     if(ListaKorisnika.get(i).getId()==ListaKorisnika.get(j).getId()){
@@ -171,15 +159,11 @@ public class Prijatelji extends HttpServlet {
                         ListaKorisnika.remove(ListaKorisnika.get(i));
                         i-=1;
                     }
-                }
-                
-                
+                }     
             }
            
-           
             request.setAttribute("Lista", ListaKorisnika);
-            request.getRequestDispatcher("Prijatelji.jsp").forward(request, response);
-   
+            request.getRequestDispatcher("Prijatelji.jsp").forward(request, response);  
         }
         
         catch(ClassNotFoundException e){
