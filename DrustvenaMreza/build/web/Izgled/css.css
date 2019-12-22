@@ -1,0 +1,41 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 21, 2019, 2:38:16 PM
+    Author     : Jaksa
+*/
+html{
+    background: black;
+    background-size: cover;
+}
+
+.Lista{
+    border-collapse: collapse;
+    width: 100%;
+
+}
+th,td{
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.Lista , th,td{
+     border: 1px white;
+}
+
+.slova{
+    color: white;
+}
+
+
+.Tabele{
+    color: white;
+    text-decoration: underline;
+}
+.Naslov{
+    color: white;
+    text-align: center;
+}
